@@ -1,0 +1,22 @@
+form {
+    border: 1px solid #b5b5b5;
+}
+
+#addTRain {
+    background-color: #e9ecef;
+}
+
+#currentTrainschedule {
+    background-color: #e9ecef;
+    margin-top: 10px;
+}
+
+.innerContainer {
+    margin: 0 auto;
+    border: 1px solid #e9ecef;
+    /* text-align: center; */
+    padding-bottom: 50px;
+}
+h5{
+    font-size: 1em;
+}

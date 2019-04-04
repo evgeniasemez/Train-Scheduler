@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    <!-- Firebase Reference -->
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+
+
+    <title>Anytime is Train Time</title>
+</head>
+
+<body>
+    <div class="panel-body">
+        <div class="container">
+            <div class="jumbotron text-center">
+                <h3>Anytime is Train Time</h3>
+            </div>
+            <div class="container">
+                <h5>Current Train Schedule</h5>
+                <div id="currentTrainschedule">
+                    <table id = "trainTable">
+                    </table>
+                </div>
+                <div class="innerContainer"></div>
+            </div>
+            <form role="form">
+                <div id="addTRain">
+                    <h5>Add Train</h5>
+                </div>
+                <div>
+                    <label for="trainName" class="col-sm-2 col-form-label">Train Name</label>
+                    <input class="form-control" type="text" placeholder="Default input" id="trainName">
+                </div>
+                <div>
+                    <label for="destination" class="col-sm-2 col-form-label">Destination</label>
+                    <input class="form-control" type="text" placeholder="Default input" id="destination">
+                </div>
+                <div>
+                    <label for="firstTrainTime" class="col-sm-2 col-form-label">First Train Time</label>
+                    <input class="form-control" type="text" placeholder="Default input" id="firstTrainTime">
+                </div>
+                <div>
+                    <label for="frequency" class="col-sm-2 col-form-label">Frequency (min)</label>
+                    <input class="form-control" type="text" placeholder="Default input" id="frequency">
+                </div>
+                <button type="button" id ="submitButton" class="btn btn-primary search">Submit</button>
+            </form>
+        </div>
+        <footer class="footer mt-auto py-3 text-center">
+            <div class="container">
+                <span class="text-muted">Made with lots of <i class="fas fa-heart"></i></span>
+            </div>
+        </footer>
+    </div>
+    <script src="assets/javascript/app.js"></script>
+</body>
+
+</html>
