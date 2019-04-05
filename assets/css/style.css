@@ -1,22 +1,41 @@
-form {
+/* form {
     border: 1px solid #b5b5b5;
 }
 
 #addTRain {
     background-color: #e9ecef;
-}
+} */
 
-#currentTrainschedule {
+/* #currentTrainschedule {
     background-color: #e9ecef;
     margin-top: 10px;
-}
+} */
 
-.innerContainer {
+/* .innerContainer {
     margin: 0 auto;
     border: 1px solid #e9ecef;
     /* text-align: center; */
-    padding-bottom: 50px;
-}
-h5{
+    /* padding-bottom: 50px; */
+/* } */ 
+/* h5{
     font-size: 1em;
+} */
+.background-color{
+    background-color: #e1e1cf;
+}
+#jumbotroncolor{
+    background-color: #b1b166;
+}
+#panelcolor{
+    background-color: #b1b166;
+    border-color: #b1b166;
+}
+#panelborder{
+    border-color: #b1b166;
+}
+.form-control{
+    padding: 1px 5px;
+}
+#formPadding{
+    padding: 1px 5px;
 }

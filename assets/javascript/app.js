@@ -45,10 +45,18 @@ var trainDataRef = database.ref(trainData);
 trainDataRef.on("value", function (snap) {
 
     snap.forEach(function (childSnapshot) {
-        $("#trainTable").append("<td><th>"+childSnapshot.val().trainWay+"</th></td>");
-        $("#trainTable").append("<tr><td>"+childSnapshot.val().destination+"</td></tr>");
-        $("#trainTable").append("<tr><td>"+childSnapshot.val().trainTime+"</td></tr>");
-        $("#trainTable").append("<tr><td>"+childSnapshot.val().trainfrequency+"</td></tr>");
+        // $("tbody").append("<td>"+childSnapshot.val().trainWay+"</td>");
+        // $("tbody").append("<td>"+childSnapshot.val().destination+"</td>");
+        // $("tbody").append("<td>"+childSnapshot.val().trainTime+"</td>");
+        // $("tbody").append("<td>"+childSnapshot.val().trainfrequency+"</td>");
+
+        var row = $("<tr>");
+        row.append("<td>" + childSnapshot.val().trainWay + "</td>");
+        row.append("<td>" + childSnapshot.val().destination + "</td>");
+        row.append("<td>" + childSnapshot.val().trainTime + "</td>");
+        row.append("<td>" + childSnapshot.val().trainfrequency + "</td>");
+        $("tbody").append(row);
+
         console.log("<tr>");
 
     });
