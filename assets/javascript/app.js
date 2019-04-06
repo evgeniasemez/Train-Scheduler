@@ -44,20 +44,30 @@ $("#submitButton").on("click", function (event) {
 var trainDataRef = database.ref(trainData);
 trainDataRef.on("value", function (snap) {
 
+    var nowTime = moment();
+    $("tbody").html("");
     snap.forEach(function (childSnapshot) {
-        // $("tbody").append("<td>"+childSnapshot.val().trainWay+"</td>");
-        // $("tbody").append("<td>"+childSnapshot.val().destination+"</td>");
-        // $("tbody").append("<td>"+childSnapshot.val().trainTime+"</td>");
-        // $("tbody").append("<td>"+childSnapshot.val().trainfrequency+"</td>");
+
+
+        var firstTrainTime = moment(childSnapshot.val().trainTime, "HH:mm");
+        var trainFrequency = childSnapshot.val().trainfrequency;
+        var n;
+        n = Math.ceil(nowTime.diff(firstTrainTime, "minutes") / parseFloat(trainFrequency));
+
+
+        var minutesAway = trainFrequency * n - (nowTime.diff(firstTrainTime, "minutes"));
+
+        var nextTrainTime = (nowTime.add(minutesAway, "minutes"));
+
 
         var row = $("<tr>");
         row.append("<td>" + childSnapshot.val().trainWay + "</td>");
         row.append("<td>" + childSnapshot.val().destination + "</td>");
-        row.append("<td>" + childSnapshot.val().trainTime + "</td>");
         row.append("<td>" + childSnapshot.val().trainfrequency + "</td>");
+        row.append("<td>" + nextTrainTime.format("HH:mm") + "</td>");
+        row.append("<td>" + minutesAway + "</td>");
         $("tbody").append(row);
-
-        console.log("<tr>");
+        
 
     });
 });

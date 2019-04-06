@@ -20,6 +20,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
 
     <title>Anytime is Train Time</title>
@@ -39,12 +40,13 @@
                 <table id="trainTable" class="table">
                     <thead>
                         <tr>
-                            <th id="trainName">Train Name</th>
-                            <th id="destination">Destination</th>
-                            <th id="firstTrainTime">First Train Time</th>
-                            <!-- <th id="nextArrival">Next Arrival</th> -->
-                            <th id="frequency">Frequency</th>
-                            <!-- <th id="minutesAway">Minutes Away</th> -->
+                            <th id="trainName1">Train Name</th>
+                            <th id="destination1">Destination</th>
+                            <th id="frequency1">Frequency</th>
+                            <!-- <th id="firstTrainTime">First Train Time</th> -->
+                            <th id="nextArrival1">Next Arrival</th>
+                            <!-- <th id="frequency">Frequency</th> -->
+                            <th id="minutesAway1">Minutes Away</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -76,16 +78,16 @@
                 <form>
                     <div class="form-group">
                         <label for="trainName">Train Name</label>
-                        <input type="text" class="form-control" id="formPadding" id="trainName">
+                        <input type="text" class="form-control formPadding" id="trainName">
                         <label for="destination">Destination</label>
-                        <input type="text" class="form-control" id="formPadding" id="destination">
+                        <input type="text" class="form-control formPadding" id="destination">
                         <label for="firstTrainTime">First Train Time</label>
                         <!-- time or date -->
-                        <input type="time" class="form-control" id="formPadding" id="firstTrainTime">
+                        <input type="text" class="form-control formPadding" id="firstTrainTime"></input>
                         <!-- <input type="text" class="form-control" id="formPadding" id="firstTrainTime"> -->
                         <label for="frequency">Frequency</label>
                         <!-- <input type="number" class="form-control" id="formPadding" id="frequency"> -->
-                        <input type="text" class="form-control" id="formPadding" id="frequency">
+                        <input type="text" class="form-control formPadding" id="frequency">
                     </div>
                     <button type="button" id="submitButton" class="btn btn-primary">Submit</button>
                 </form>
