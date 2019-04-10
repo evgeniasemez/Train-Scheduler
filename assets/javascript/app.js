@@ -1,5 +1,5 @@
 
-
+// setting the API call
 var config = {
     apiKey: "AIzaSyDhQje3TQr2-fYTPmA41k4jvt4TTR5C6zw",
     authDomain: "evgenia-s-project.firebaseapp.com",
@@ -10,9 +10,9 @@ var config = {
 };
 
 firebase.initializeApp(config);
-
+// setting Firebase database
 var database = firebase.database();
-
+// serring the submit button and input values
 var trainData = "/dataTrain";
 $("#submitButton").on("click", function (event) {
     event.preventDefault();
@@ -23,32 +23,28 @@ $("#submitButton").on("click", function (event) {
     var firstTrainTime = $("#firstTrainTime").val().trim();
     var frequency = parseInt($("#frequency").val().trim());
 
-    console.log(trainName);
-    console.log(trainDestination);
-    console.log(firstTrainTime);
-    console.log(frequency);
-
-    // evaluate input
+    // evaluate input for Train Name
     var regex = /^[a-z0-9 ]+$/i;
     if (!trainName.match(regex)) {
         $("#trainName").val("");
         return;
     }
-
+    // // evaluate input for Train Destination
     if (!trainDestination.match(regex)) {
         $("#destination").val("");
         return;
     }
-
+    // // evaluate input for Train Time
     if (!moment(firstTrainTime, "HH:mm").isValid()) {
         $("#firstTrainTime").val("");
         return;
     }
+    // // evaluate input for Frequency
     if (isNaN(frequency)) {
         $("#frequency").val("");
         return;
     }
-
+    // pushing data to database
     database.ref(trainData).push({
         trainWay: trainName,
         destination: trainDestination,
@@ -56,7 +52,7 @@ $("#submitButton").on("click", function (event) {
         trainfrequency: frequency
     });
 
-
+    // cleaning inputes
     $("#trainName").val("");
     $("#destination").val("");
     $("#firstTrainTime").val("");
@@ -66,7 +62,7 @@ $("#submitButton").on("click", function (event) {
 
 var trainDataRef = database.ref(trainData);
 trainDataRef.on("value", function (snap) {
-
+    // setting moment 
     var nowTime = moment();
     $("tbody").html("");
     snap.forEach(function (childSnapshot) {
@@ -77,26 +73,19 @@ trainDataRef.on("value", function (snap) {
         var minutesAway;
         var nextTrainTime;
 
-        console.log(nowTime.format());
-        console.log(firstTrainTime.format());
-        console.log(nowTime.isBefore(firstTrainTime));
         if (nowTime.isBefore(firstTrainTime)) {
-            console.log("Future start time");
             minutesAway = firstTrainTime.diff(nowTime, "minutes");
-            // nextTrainTime = (nowTime.add(minutesAway, "minutes"));
             nextTrainTime = firstTrainTime;
         }
         else {
-            console.log("Past start time");
             n = Math.ceil(nowTime.diff(firstTrainTime, "minutes") / parseFloat(trainFrequency));
             minutesAway = trainFrequency * n - (nowTime.diff(firstTrainTime, "minutes"));
-            // nextTrainTime = (nowTime.add(minutesAway, "minutes"));
             var nowClone = moment(nowTime);
             nowClone.add(minutesAway);
             nextTrainTime = nowClone;
         }
 
-
+        // setting a table for output 
         var row = $("<tr>");
         row.append("<td>" + childSnapshot.val().trainWay + "</td>");
         row.append("<td>" + childSnapshot.val().destination + "</td>");

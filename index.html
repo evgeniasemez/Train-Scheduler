@@ -4,36 +4,33 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
-    <!-- Bootstrap CSS -->
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" -->
-    <!-- crossorigin="anonymous"> -->
-    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" -->
-    <!-- crossorigin="anonymous"> -->
+    <!-- linking css -->
     <link rel="stylesheet" href="assets/css/style.css" />
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-
-    <!-- Firebase Reference -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script> -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- linking bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!-- linking jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <!-- linking Firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+    <!-- linking moment -->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
 
     <title>Anytime is Train Time</title>
 </head>
+<!-- setting the background color -->
 
 <body class="background-color">
-
+    <!-- setting a container with a header -->
     <div class="container">
         <div class="jumbotron text-center" id="jumbotroncolor">
 
             <h2>Anytime is Train Time</h2>
             <h3>Choo Choo Chee Chee</h3>
         </div>
+        <!-- creating a table -->
         <div class="panel panel-default" id="panelborder">
             <div class="panel-heading" id="panelcolor">Current Train Schedule</div>
             <div class="panel-body">
@@ -43,35 +40,22 @@
                             <th id="trainName1">Train Name</th>
                             <th id="destination1">Destination</th>
                             <th id="frequency1">Frequency</th>
-                            <!-- <th id="firstTrainTime">First Train Time</th> -->
                             <th id="nextArrival1">Next Arrival</th>
-                            <!-- <th id="frequency">Frequency</th> -->
                             <th id="minutesAway1">Minutes Away</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <!-- <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td> -->
                         </tr>
                         <tr>
-                            <!-- <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td> -->
                         </tr>
                         <tr>
-                            <!-- <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td> -->
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
+        <!-- setting a second table -->
         <div class="panel panel-default" id="panelborder">
             <div class="panel-heading" id="panelcolor">Add Train</div>
             <div class="panel-body">
@@ -82,11 +66,9 @@
                         <label for="destination">Destination</label>
                         <input type="text" class="form-control formPadding" id="destination">
                         <label for="firstTrainTime">First Train Time</label>
-                        <!-- time or date -->
+
                         <input type="text" class="form-control formPadding" id="firstTrainTime"></input>
-                        <!-- <input type="text" class="form-control" id="formPadding" id="firstTrainTime"> -->
                         <label for="frequency">Frequency</label>
-                        <!-- <input type="number" class="form-control" id="formPadding" id="frequency"> -->
                         <input type="text" class="form-control formPadding" id="frequency">
                     </div>
                     <button type="button" id="submitButton" class="btn btn-primary">Submit</button>
@@ -94,50 +76,6 @@
             </div>
         </div>
     </div>
-
-    <!-- <div class="panel-body">
-        <div class="container">
-            <div class="jumbotron text-center">
-                <h3>Anytime is Train Time</h3>
-            </div>
-            <div class="container">
-                <h5>Current Train Schedule</h5>
-                <div id="currentTrainschedule">
-                    <table id = "trainTable">
-                    </table>
-                </div>
-                <div class="innerContainer"></div>
-            </div>
-            <form role="form">
-                <div id="addTRain">
-                    <h5>Add Train</h5>
-                </div>
-                <div>
-                    <label for="trainName" class="col-sm-2 col-form-label">Train Name</label>
-                    <input class="form-control" type="text" placeholder="Default input" id="trainName">
-                </div>
-                <div>
-                    <label for="destination" class="col-sm-2 col-form-label">Destination</label>
-                    <input class="form-control" type="text" placeholder="Default input" id="destination">
-                </div>
-                <div>
-                    <label for="firstTrainTime" class="col-sm-2 col-form-label">First Train Time</label>
-                    <input class="form-control" type="text" placeholder="Default input" id="firstTrainTime">
-                </div>
-                <div>
-                    <label for="frequency" class="col-sm-2 col-form-label">Frequency (min)</label>
-                    <input class="form-control" type="text" placeholder="Default input" id="frequency">
-                </div>
-                <button type="button" id ="submitButton" class="btn btn-primary search">Submit</button>
-            </form>
-        </div> -->
-
-    <!-- <footer class="footer mt-auto py-3 text-center">
-            <div class="container">
-                <span class="text-muted">Made with lots of <i class="fas fa-heart"></i></span>
-            </div>
-        </footer>
-    </div> -->
     <script src="assets/javascript/app.js"></script>
 </body>
 
