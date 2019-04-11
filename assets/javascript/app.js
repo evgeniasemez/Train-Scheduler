@@ -12,7 +12,7 @@ var config = {
 firebase.initializeApp(config);
 // setting Firebase database
 var database = firebase.database();
-// serring the submit button and input values
+// setting the submit button and input values
 var trainData = "/dataTrain";
 $("#submitButton").on("click", function (event) {
     event.preventDefault();
