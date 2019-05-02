@@ -80,8 +80,9 @@ trainDataRef.on("value", function (snap) {
         else {
             n = Math.ceil(nowTime.diff(firstTrainTime, "minutes") / parseFloat(trainFrequency));
             minutesAway = trainFrequency * n - (nowTime.diff(firstTrainTime, "minutes"));
+
             var nowClone = moment(nowTime);
-            nowClone.add(minutesAway);
+            nowClone.add(minutesAway, "minutes");
             nextTrainTime = nowClone;
         }
 
@@ -91,9 +92,28 @@ trainDataRef.on("value", function (snap) {
         row.append("<td>" + childSnapshot.val().destination + "</td>");
         row.append("<td>" + childSnapshot.val().trainfrequency + "</td>");
         row.append("<td>" + nextTrainTime.format("LT") + "</td>");
-        row.append("<td>" + minutesAway + "</td>");
+        row.append("<td>" + minutesConversion(minutesAway) + "</td>");
         $("tbody").append(row);
 
 
     });
+
+    function minutesConversion(minutesAway) {//105
+        var m = Math.floor((minutesAway) % 60);//45
+        var h = Math.floor(minutesAway / 60);//1
+        if(h === 0 && m === 0){
+            return "now";
+        }
+        else if (h === 0) {
+            return m + "m ";
+        }
+        else if (m === 0) {
+            return h + "h ";
+        }
+        
+        return m + "m " + h + "h ";
+    }
+
+    // setInterval(,1000);
+    // use moment to get the current time, format it, grab the id - set it to internal text to that moment formated
 });
