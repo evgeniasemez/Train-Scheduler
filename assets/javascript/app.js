@@ -115,10 +115,11 @@ trainDataRef.on("value", function (snap) {
     }
 
     // setting the clock
-    setInterval(displayTime(),1000);
+    setInterval(displayTime,1000);
     function displayTime() {
         var time = moment().format('HH:mm:ss');
         $('#clockID').html(time);
-        setTimeout(displayTime, 1000);
+        // setTimeout(displayTime, 1000);
+        // console.log(displayTime + "make it work");
     }
 });
