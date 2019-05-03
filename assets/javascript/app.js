@@ -101,7 +101,7 @@ trainDataRef.on("value", function (snap) {
     function minutesConversion(minutesAway) {//105
         var m = Math.floor((minutesAway) % 60);//45
         var h = Math.floor(minutesAway / 60);//1
-        if(h === 0 && m === 0){
+        if (h === 0 && m === 0) {
             return "now";
         }
         else if (h === 0) {
@@ -110,10 +110,15 @@ trainDataRef.on("value", function (snap) {
         else if (m === 0) {
             return h + "h ";
         }
-        
+
         return m + "m " + h + "h ";
     }
 
-    // setInterval(,1000);
-    // use moment to get the current time, format it, grab the id - set it to internal text to that moment formated
+    // setting the clock
+    setInterval(displayTime(),1000);
+    function displayTime() {
+        var time = moment().format('HH:mm:ss');
+        $('#clockID').html(time);
+        setTimeout(displayTime, 1000);
+    }
 });
